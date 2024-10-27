@@ -1,5 +1,6 @@
 import React from "react";
 import styled from "styled-components";
+import { isEmailValid } from "../utils/formValidators";
 
 const Form = styled.form`
   display: flex;
@@ -41,12 +42,17 @@ const Button = styled.button`
   }
 `;
 
+const ErrorMessage = styled.p`
+  color: red;
+`;
+
 export const ContactForm = () => {
   const [formState, setFormState] = React.useState({
     name: "",
     email: "",
     message: "",
   });
+  const [error, setError] = React.useState("");
 
   const handleChange = (
     e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
@@ -57,6 +63,13 @@ export const ContactForm = () => {
 
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
+
+    if (!isEmailValid(formState.email)) {
+      setError("Please enter a valid email address.");
+      return;
+    }
+
+    setError("");
     console.log("Form submitted", formState);
   };
 
@@ -78,6 +91,7 @@ export const ContactForm = () => {
         onChange={handleChange}
         required
       />
+      {error && <ErrorMessage>{error}</ErrorMessage>}
       <Label>Message:</Label>
       <Textarea
         name="message"
