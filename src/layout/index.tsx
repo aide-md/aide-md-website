@@ -3,6 +3,7 @@ import styled from "styled-components";
 
 import { Footer } from "../components/Footer";
 import { Header } from "../components/Header";
+import { GlobalStyles } from "./GlobalStyles";
 
 const Main = styled.main`
   padding: 20px;
@@ -12,14 +13,13 @@ const Main = styled.main`
   min-height: 80vh;
 `;
 
-const Layout: React.FCC = ({ children }) => {
+export const Layout: React.FCC = ({ children }) => {
   return (
     <>
+      <GlobalStyles />
       <Header />
       <Main>{children}</Main>
       <Footer />
     </>
   );
 };
-
-export default Layout;
