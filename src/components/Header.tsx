@@ -28,9 +28,11 @@ export const Header = () => {
   return (
     <HeaderWrapper>
       <Nav>
+        {/* Home przedstawiamy produkt more or less */}
         <NavLink to="/">Home</NavLink>
+        {/* O nas, zespol, o produkcie */}
         <NavLink to="/about">About</NavLink>
-        <NavLink to="/blog">Blog</NavLink>
+        {/* Formularz */}
         <NavLink to="/contact">Contact</NavLink>
       </Nav>
     </HeaderWrapper>

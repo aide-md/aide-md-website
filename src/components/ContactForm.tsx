@@ -75,6 +75,7 @@ export const ContactForm = () => {
 
   return (
     <Form onSubmit={handleSubmit}>
+      {/* Email, numer tel, firma opcjonalnie, wiadomosc opcjo */}
       <Label>Name:</Label>
       <Input
         type="text"
