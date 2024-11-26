@@ -1,5 +1,6 @@
 import React from "react";
 import styled from "styled-components";
+import { isEmailValid } from "../utils/formValidators";
 
 const Form = styled.form`
   display: flex;
@@ -41,12 +42,17 @@ const Button = styled.button`
   }
 `;
 
+const ErrorMessage = styled.p`
+  color: red;
+`;
+
 export const ContactForm = () => {
   const [formState, setFormState] = React.useState({
     name: "",
     email: "",
     message: "",
   });
+  const [error, setError] = React.useState("");
 
   const handleChange = (
     e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
@@ -57,13 +63,22 @@ export const ContactForm = () => {
 
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
+
+    if (!isEmailValid(formState.email)) {
+      setError("Please enter a valid email address.");
+      return;
+    }
+
+    setError("");
     console.log("Form submitted", formState);
   };
 
   return (
     <Form onSubmit={handleSubmit}>
+      {/* Email, numer tel, firma opcjonalnie, wiadomosc opcjo */}
       <Label>Name:</Label>
       <Input
+        data-testid="name"
         type="text"
         name="name"
         value={formState.name}
@@ -72,14 +87,17 @@ export const ContactForm = () => {
       />
       <Label>Email:</Label>
       <Input
+        data-testid="email"
         type="email"
         name="email"
         value={formState.email}
         onChange={handleChange}
         required
       />
+      {error && <ErrorMessage>{error}</ErrorMessage>}
       <Label>Message:</Label>
       <Textarea
+        data-testid="message"
         name="message"
         value={formState.message}
         onChange={handleChange}

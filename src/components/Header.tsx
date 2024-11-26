@@ -1,16 +1,23 @@
 import React from "react";
-import { Link } from "gatsby";
+import { graphql, Link } from "gatsby";
 import styled from "styled-components";
+import { Image } from "./Image";
+import { ImageDataLike } from "gatsby-plugin-image";
+import { Button } from "./Button";
 
 const HeaderWrapper = styled.header`
   background-color: #00796b;
   padding: 15px 20px;
   color: #ffffff;
+  display: grid;
+  place-items: center;
 `;
 
 const Nav = styled.nav`
   display: flex;
   justify-content: space-between;
+  max-width: 1200px;
+  width: 100%;
 `;
 
 const NavLink = styled(Link)`
@@ -24,15 +31,50 @@ const NavLink = styled(Link)`
   }
 `;
 
-export const Header = () => {
+const Logo = styled(Image)`
+  width: 40px;
+`;
+
+const NavLinksWithLogo = styled.div`
+  display: flex;
+  align-items: center;
+`;
+
+interface HeaderProps {
+  logo: ImageDataLike | null;
+}
+
+export const Header: React.FC<HeaderProps> = ({ logo }) => {
+  const handleTestAppClick = () => {
+    console.log("Test Aide click");
+  };
+
   return (
     <HeaderWrapper>
       <Nav>
-        <NavLink to="/">Home</NavLink>
-        <NavLink to="/about">About</NavLink>
-        <NavLink to="/blog">Blog</NavLink>
-        <NavLink to="/contact">Contact</NavLink>
+        <NavLinksWithLogo>
+          <Logo imageData={logo} alt="logo" />
+          {/* Home przedstawiamy produkt more or less */}
+          <NavLink to="/">Home</NavLink>
+          {/* O nas, zespol, o produkcie */}
+          <NavLink to="/about">About</NavLink>
+          {/* Formularz */}
+          <NavLink to="/contact">Contact</NavLink>
+        </NavLinksWithLogo>
+        <Button variant="secondary" onClick={handleTestAppClick}>
+          Test Aide
+        </Button>
       </Nav>
     </HeaderWrapper>
   );
 };
+
+export const query = graphql`
+  query {
+    placeholderImage: file(relativePath: { eq: "team.jpg" }) {
+      childImageSharp {
+        gatsbyImageData(layout: CONSTRAINED, width: 40)
+      }
+    }
+  }
+`;
