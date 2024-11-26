@@ -78,6 +78,7 @@ export const ContactForm = () => {
       {/* Email, numer tel, firma opcjonalnie, wiadomosc opcjo */}
       <Label>Name:</Label>
       <Input
+        data-testid="name"
         type="text"
         name="name"
         value={formState.name}
@@ -86,6 +87,7 @@ export const ContactForm = () => {
       />
       <Label>Email:</Label>
       <Input
+        data-testid="email"
         type="email"
         name="email"
         value={formState.email}
@@ -95,6 +97,7 @@ export const ContactForm = () => {
       {error && <ErrorMessage>{error}</ErrorMessage>}
       <Label>Message:</Label>
       <Textarea
+        data-testid="message"
         name="message"
         value={formState.message}
         onChange={handleChange}
