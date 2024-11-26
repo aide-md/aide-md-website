@@ -18,6 +18,7 @@ const config: GatsbyConfig = {
       resolve: "gatsby-plugin-manifest",
       options: {
         icon: "src/images/icon.png",
+        logo: "src/images/logo.png"
       },
     },
     "gatsby-transformer-remark",
