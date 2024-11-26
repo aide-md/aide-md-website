@@ -8,7 +8,6 @@ const Wrapper = styled.div`
   width: 100%;
   display: flex;
   gap: 120px;
-  height: 100vh;
   padding: 80px 0;
 `;
 
@@ -39,8 +38,16 @@ const CreditsWrapper = styled.div`
   align-items: center;
 `;
 
+const CreditsImageWrapper = styled.div`
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  margin-right: 16px;
+`;
+
 const CreditsTitle = styled.h4`
-  font-weight: medium;
+  font-weight: normal;
+  margin-bottom: 8px;
 `;
 
 const CreditsDescription = styled.p`
@@ -50,13 +57,18 @@ const CreditsDescription = styled.p`
 
 const ImageWrapper = styled.div`
   flex: 1;
+  display: flex;
+  align-items: center;
 `;
 
 interface IntroSectionProps {
-  image: ImageDataLike | null;
+  images: {
+    placeholderImage: ImageDataLike | null;
+    icon: ImageDataLike | null;
+  };
 }
 
-export const IntroSection: React.FC<IntroSectionProps> = ({ image }) => {
+export const IntroSection: React.FC<IntroSectionProps> = ({ images }) => {
   const handleTestAppClick = () => {
     console.log("test app click");
   };
@@ -83,9 +95,11 @@ export const IntroSection: React.FC<IntroSectionProps> = ({ image }) => {
           </Button>
         </ButtonsWrapper>
         <CreditsWrapper>
-          <div>images</div>
+          <CreditsImageWrapper>
+            <Image imageData={images.icon} alt="Credit image" />
+          </CreditsImageWrapper>
           <div>
-            <CreditsTitle>Stworzony przez ZnanyLekarz</CreditsTitle>
+            <CreditsTitle>Stworzony przez Aide md</CreditsTitle>
             <CreditsDescription>
               któremu zaufało ponad 70 000 lekarzy w Polsce
             </CreditsDescription>
@@ -93,7 +107,7 @@ export const IntroSection: React.FC<IntroSectionProps> = ({ image }) => {
         </CreditsWrapper>
       </ContentWrapper>
       <ImageWrapper>
-        <Image imageData={image} alt="Intro image" />
+        <Image imageData={images.placeholderImage} alt="Intro image" />
       </ImageWrapper>
     </Wrapper>
   );

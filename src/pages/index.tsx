@@ -11,6 +11,7 @@ export interface IndexPageProps extends PageProps {
   data: {
     placeholderImage: DataImage;
     logo: DataImage;
+    icon: DataImage;
   };
 }
 
@@ -19,8 +20,15 @@ const IndexPage: React.FC<IndexPageProps> = ({ data }) => {
     <Layout logo={data.logo.childImageSharp.gatsbyImageData}>
       <HomeView
         images={{
-          placeholderImage:
-            data.placeholderImage.childImageSharp.gatsbyImageData,
+          intro: {
+            placeholderImage:
+              data.placeholderImage.childImageSharp.gatsbyImageData,
+            icon: data.icon.childImageSharp.gatsbyImageData,
+          },
+          test: {
+            placeholderImage:
+              data.placeholderImage.childImageSharp.gatsbyImageData,
+          },
         }}
       />
     </Layout>
@@ -41,6 +49,11 @@ export const query = graphql`
       }
     }
     logo: file(relativePath: { eq: "team.jpg" }) {
+      childImageSharp {
+        gatsbyImageData(layout: CONSTRAINED, width: 40)
+      }
+    }
+    icon: file(relativePath: { eq: "icon.png" }) {
       childImageSharp {
         gatsbyImageData(layout: CONSTRAINED, width: 40)
       }

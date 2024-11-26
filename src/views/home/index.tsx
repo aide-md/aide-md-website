@@ -13,14 +13,20 @@ const ImageSectionWrapper = styled.div`
 
 interface HomeViewProps {
   images: {
-    placeholderImage: ImageDataLike | null;
+    intro: {
+      placeholderImage: ImageDataLike | null;
+      icon: ImageDataLike | null;
+    };
+    test: {
+      placeholderImage: ImageDataLike | null;
+    };
   };
 }
 
 export const HomeView: React.FC<HomeViewProps> = ({ images }) => {
   return (
     <>
-      <IntroSection image={images.placeholderImage} />
+      <IntroSection images={images.intro} />
       <Hero
         title="Welcome to Aide MD"
         subtitle="Your health is our priority. Find the best medical assistance today."
@@ -30,7 +36,7 @@ export const HomeView: React.FC<HomeViewProps> = ({ images }) => {
 
       <ImageSectionWrapper>
         <h2>Meet Our Team</h2>
-        <Image imageData={images.placeholderImage} alt="Medical team" />
+        <Image imageData={images.test.placeholderImage} alt="Medical team" />
       </ImageSectionWrapper>
 
       <ContactForm />
