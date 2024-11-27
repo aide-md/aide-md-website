@@ -55,11 +55,11 @@ export const Header: React.FC<HeaderProps> = ({ logo }) => {
         <NavLinksWithLogo>
           <Logo imageData={logo} alt="logo" />
           {/* Home przedstawiamy produkt more or less */}
-          <NavLink to="/">Home</NavLink>
+          <NavLink to="/">Główna</NavLink>
           {/* O nas, zespol, o produkcie */}
-          <NavLink to="/about">About</NavLink>
+          <NavLink to="/about">O nas</NavLink>
           {/* Formularz */}
-          <NavLink to="/contact">Contact</NavLink>
+          <NavLink to="/contact">Kontakt</NavLink>
           <NavLink to="/proposition">Czemu my?</NavLink>
           <NavLink to="/faq">FAQ</NavLink>
           <NavLink to="/tryit">Przekonaj się!</NavLink>
