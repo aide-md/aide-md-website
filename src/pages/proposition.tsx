@@ -77,14 +77,6 @@ Innowacyjny sposób dystrybucji umożliwiając zakup usługi również bezpośre
           alt="Aide MD medical team"
         />
       </TeamSectionWrapper>
-
-      <Section>
-        <h2>Our Logo</h2>
-        <Image
-          imageData={data.logo.childImageSharp.gatsbyImageData}
-          alt="Aide MD logo"
-        />
-      </Section>
     </Layout>
   );
 };
