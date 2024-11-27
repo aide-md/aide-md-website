@@ -60,7 +60,10 @@ export const Header: React.FC<HeaderProps> = ({ logo }) => {
           <NavLink to="/about">About</NavLink>
           {/* Formularz */}
           <NavLink to="/contact">Contact</NavLink>
-          <NavLink to="/value">Why us?</NavLink>
+          <NavLink to="/proposition">Czemu my?</NavLink>
+          <NavLink to="/faq">FAQ</NavLink>
+          <NavLink to="/tryit">Przekonaj się!</NavLink>
+
 
         </NavLinksWithLogo>
         <Button variant="secondary" onClick={handleTestAppClick}>
