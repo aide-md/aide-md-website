@@ -5,19 +5,19 @@ import { graphql } from "gatsby";
 import { Layout } from "../layout";
 import { SEO } from "../components/SEO";
 import { DataImage } from "../types/image";
-import { FaqView } from "../views/faq";
+import { DemoView } from "../views/demo";
 
-interface FAQPageProps extends PageProps {
+interface DemoPageProps extends PageProps {
   data: {
     teamImage: DataImage;
     logo: DataImage;
   };
 }
 
-const FAQPage: React.FC<FAQPageProps> = ({ data }) => {
+const DemoPage: React.FC<DemoPageProps> = ({ data }) => {
   return (
     <Layout logo={data.logo.childImageSharp.gatsbyImageData}>
-      <FaqView
+      <DemoView
         images={{
           teamImage: data.teamImage.childImageSharp.gatsbyImageData,
         }}
@@ -26,15 +26,10 @@ const FAQPage: React.FC<FAQPageProps> = ({ data }) => {
   );
 };
 
-export default FAQPage;
+export default DemoPage;
 
 export const Head: HeadFC = () => (
-  <SEO
-    title="FAQ"
-    name="Aide MD"
-    content="Let us answer some questions"
-    lang="pl"
-  />
+  <SEO title="Try Aide MD" name="Aide MD" content="Try Aide MD app" lang="pl" />
 );
 
 export const query = graphql`

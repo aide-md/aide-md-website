@@ -48,7 +48,7 @@ export const query = graphql`
         gatsbyImageData(layout: CONSTRAINED, width: 500)
       }
     }
-    logo: file(relativePath: { eq: "team.jpg" }) {
+    logo: file(relativePath: { eq: "logo.png" }) {
       childImageSharp {
         gatsbyImageData(layout: CONSTRAINED, width: 40)
       }

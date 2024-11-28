@@ -1,60 +1,27 @@
 import React from "react";
 import type { HeadFC, PageProps } from "gatsby";
 import { graphql } from "gatsby";
-import { IGatsbyImageData } from "gatsby-plugin-image";
-import styled from "styled-components";
 
 import { Layout } from "../layout";
 import { SEO } from "../components/SEO";
-import { Hero } from "../components/Hero";
-import { Image } from "../components/Image";
-
-const Section = styled.section`
-  margin: 40px 0;
-  padding: 20px;
-`;
-
-const TeamSectionWrapper = styled.div`
-  margin: 40px 0;
-`;
+import { DataImage } from "../types/image";
+import { AboutView } from "../views/about";
 
 interface AboutPageProps extends PageProps {
   data: {
-    teamImage: {
-      childImageSharp: {
-        gatsbyImageData: IGatsbyImageData;
-      };
-    };
+    teamImage: DataImage;
+    logo: DataImage;
   };
 }
 
 const AboutPage: React.FC<AboutPageProps> = ({ data }) => {
   return (
-    <Layout>
-      <Hero
-        title="About Aide MD"
-        subtitle="Learn more about our mission to provide quality medical assistance."
-        ctaText="Contact Us"
-        ctaLink="/contact"
+    <Layout logo={data.logo.childImageSharp.gatsbyImageData}>
+      <AboutView
+        images={{
+          teamImage: data.teamImage.childImageSharp.gatsbyImageData,
+        }}
       />
-
-      <Section>
-        <h2>Our Mission</h2>
-        <p>
-          At Aide MD, we strive to offer the best healthcare solutions through a
-          seamless and accessible platform. Our mission is to connect patients
-          with qualified medical professionals, ensuring quality care at your
-          fingertips.
-        </p>
-      </Section>
-
-      <TeamSectionWrapper>
-        <h2>Meet Our Team</h2>
-        <Image
-          imageData={data.teamImage.childImageSharp.gatsbyImageData}
-          alt="Aide MD medical team"
-        />
-      </TeamSectionWrapper>
     </Layout>
   );
 };
@@ -75,6 +42,11 @@ export const query = graphql`
     teamImage: file(relativePath: { eq: "team.jpg" }) {
       childImageSharp {
         gatsbyImageData(layout: CONSTRAINED, width: 600)
+      }
+    }
+    logo: file(relativePath: { eq: "logo.png" }) {
+      childImageSharp {
+        gatsbyImageData(layout: CONSTRAINED, width: 40)
       }
     }
   }
