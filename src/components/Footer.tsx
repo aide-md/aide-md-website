@@ -11,7 +11,7 @@ const FooterWrapper = styled.footer`
 export const Footer = () => {
   return (
     <FooterWrapper>
-      <p>© {new Date().getFullYear()} Medical App. All Rights Reserved.</p>
+      <p>© {new Date().getFullYear()} Projekt „Platforma Startowa Unicorn Hub – Edycja II” współfinansowany ze środków Unii Europejskiej w ramach programu Fundusze Europejskie dla Polski Wschodniej 2021-2027, Priorytet FEPW.01 Przedsiębiorczość i Innowacje, Działanie FEPW.01.01 Platformy startowe dla nowych pomysłów, Komponent I Inkubacja – rozwój nowego pomysłu biznesowego.</p>
     </FooterWrapper>
   );
 };

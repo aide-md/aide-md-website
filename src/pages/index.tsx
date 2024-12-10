@@ -7,6 +7,8 @@ import { SEO } from "../components/SEO";
 import { DataImage } from "../types/image";
 import { HomeView } from "../views/home";
 
+import footerImage from "../images/footer.jpg";
+
 export interface IndexPageProps extends PageProps {
   data: {
     placeholderImage: DataImage;
@@ -31,6 +33,13 @@ const IndexPage: React.FC<IndexPageProps> = ({ data }) => {
           },
         }}
       />
+      <div style={{ textAlign: "center", marginTop: "2rem" }}>
+        <img
+          src={footerImage}
+          alt="Footer"
+          style={{ maxWidth: "100%", height: "auto" }}
+        />
+      </div>
     </Layout>
   );
 };

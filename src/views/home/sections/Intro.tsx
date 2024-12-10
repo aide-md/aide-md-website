@@ -82,7 +82,7 @@ export const IntroSection: React.FC<IntroSectionProps> = ({ images }) => {
       <ContentWrapper>
         <Heading>Lekarz leczy, technologia AI tworzy notatki</Heading>
         <Description>
-          Noa Notes odciąży Cię w notowaniu w trakcie wizyty, a Ty zyskasz
+          AIDE.MD odciąży Cię w notowaniu w trakcie wizyty, a Ty zyskasz
           więcej czasu, lepszą interakcję z pacjentem i dokładniejszą
           dokumentację
         </Description>
