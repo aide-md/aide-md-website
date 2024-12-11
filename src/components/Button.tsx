@@ -27,9 +27,10 @@ const StyledButton = styled.button<{
 `;
 
 interface ButtonProps {
-  onClick(): void;
+  onClick?(): void;
   variant?: ButtonVariants;
   size?: ButtonSizes;
+  type?: "button" | "submit" | "reset";
 }
 
 export const Button: React.FCC<ButtonProps> = ({
@@ -37,9 +38,10 @@ export const Button: React.FCC<ButtonProps> = ({
   onClick,
   variant = "primary",
   size = "normal",
+  type = "button",
 }) => {
   return (
-    <StyledButton onClick={onClick} variant={variant} size={size}>
+    <StyledButton type={type} onClick={onClick} variant={variant} size={size}>
       {children}
     </StyledButton>
   );

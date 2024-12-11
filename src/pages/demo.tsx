@@ -45,7 +45,7 @@ export const query = graphql`
     }
     logo: file(relativePath: { eq: "logo.png" }) {
       childImageSharp {
-        gatsbyImageData(layout: CONSTRAINED, width: 80)
+        gatsbyImageData(layout: CONSTRAINED, width: 100)
       }
     }
     flags: file(relativePath: { eq: "flags.jpg" }) {

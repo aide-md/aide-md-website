@@ -18,14 +18,12 @@ export const HomeView: React.FC<HomeViewProps> = ({ images }) => {
     <>
       <IntroSection images={images.intro} />
       <Hero
-        title="Korzyści w skrócie:"
+        title="Co zyskujesz?"
         bullets={[
           "Automatyczna transkrypcja i generowanie notatek.",
           "Skrócenie czasu pracy lekarzy o 30%.",
           "Zwiększenie liczby obsługiwanych wizyt o 20%.",
         ]}
-        ctaText="Get Started"
-        ctaLink="/about"
       />
     </>
   );

@@ -1,7 +1,15 @@
+import { ImageDataLike } from "gatsby-plugin-image";
 import React from "react";
 import styled from "styled-components";
+import { Image } from "../../components/Image";
 
-const Section = styled.section``;
+const Section = styled.section`
+  // display: flex;
+  // align-items: center;
+  // gap: ${({ theme }) => theme.spacing.xl};
+`;
+
+const Wrapper = styled.div``;
 
 const Heading = styled.h1`
   margin-bottom: ${({ theme }) => theme.spacing.l};
@@ -11,11 +19,14 @@ const Text = styled.p`
   color: ${({ theme }) => theme.colors.grey};
 `;
 
-interface AboutViewProps {}
+interface AboutViewProps {
+  image: ImageDataLike | null;
+}
 
-export const AboutView: React.FC<AboutViewProps> = () => {
+export const AboutView: React.FC<AboutViewProps> = ({ image }) => {
   return (
     <Section>
+      {/* <Wrapper> */}
       <Heading>Innowacja w sercu medycyny</Heading>
       <Text>
         Jesteśmy zespołem wizjonerów, którzy łączą technologię z empatią.
@@ -31,10 +42,16 @@ export const AboutView: React.FC<AboutViewProps> = () => {
         obsługi i pełne bezpieczeństwo danych.
       </Text>
       <br />
-      <Text>
+      <Text
+        style={{
+          marginBottom: 32,
+        }}
+      >
         Naszą misją jest uczynienie medycyny bardziej ludzką. Razem możemy
         zmienić sposób, w jaki działa Twoja placówka.
       </Text>
+      {/* </Wrapper> */}
+      <Image imageData={image} alt="" />
     </Section>
   );
 };

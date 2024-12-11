@@ -32,13 +32,13 @@ const NavLink = styled(Link)`
   }
 `;
 
-const Logo = styled(Image)`
-  margin-right: 50px;
-`;
-
 const NavLinksWithLogo = styled.div`
   display: flex;
   align-items: center;
+
+  &:first-child {
+    margin-right: ${({ theme }) => theme.spacing.m};
+  }
 `;
 
 interface HeaderProps {
@@ -54,7 +54,7 @@ export const Header: React.FC<HeaderProps> = ({ logo }) => {
     <HeaderWrapper>
       <Nav>
         <NavLinksWithLogo>
-          <Logo imageData={logo} alt="logo" />
+          <Image imageData={logo} alt="logo" />
           <NavLink to="/">Główna</NavLink>
           <NavLink to="/about">O nas</NavLink>
           <NavLink to="/proposition">Czemu my?</NavLink>
@@ -63,7 +63,7 @@ export const Header: React.FC<HeaderProps> = ({ logo }) => {
           <NavLink to="/contact">Kontakt</NavLink>
         </NavLinksWithLogo>
         <Button variant="secondary" onClick={handleTestAppClick}>
-          Test Aide
+          Przetestuj
         </Button>
       </Nav>
     </HeaderWrapper>

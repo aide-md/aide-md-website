@@ -43,14 +43,14 @@ export const Head: HeadFC = () => (
 
 export const query = graphql`
   query {
-    placeholderImage: file(relativePath: { eq: "team.jpg" }) {
+    placeholderImage: file(relativePath: { eq: "woman-talking.png" }) {
       childImageSharp {
-        gatsbyImageData(layout: CONSTRAINED, width: 500)
+        gatsbyImageData(layout: CONSTRAINED, width: 600)
       }
     }
     logo: file(relativePath: { eq: "logo.png" }) {
       childImageSharp {
-        gatsbyImageData(layout: CONSTRAINED, width: 80)
+        gatsbyImageData(layout: CONSTRAINED, width: 100)
       }
     }
     logoPlain: file(relativePath: { eq: "logo-plain-light.png" }) {

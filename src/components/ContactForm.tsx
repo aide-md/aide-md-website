@@ -1,6 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 import { isEmailValid } from "../utils/formValidators";
+import { Button } from "./Button";
 
 const Form = styled.form`
   display: flex;
@@ -12,6 +13,8 @@ const Form = styled.form`
 
 const Label = styled.label`
   font-size: 1rem;
+  color: ${({ theme }) => theme.colors.secondary};
+  font-weight: bold;
 `;
 
 const Input = styled.input`
@@ -27,19 +30,6 @@ const Textarea = styled.textarea`
   border-radius: 4px;
   font-size: 1rem;
   min-height: 150px;
-`;
-
-const Button = styled.button`
-  background-color: #00796b;
-  color: white;
-  border: none;
-  padding: 10px 15px;
-  border-radius: 4px;
-  cursor: pointer;
-
-  &:hover {
-    background-color: #005f56;
-  }
 `;
 
 const ErrorMessage = styled.p`
@@ -76,7 +66,7 @@ export const ContactForm = () => {
   return (
     <Form onSubmit={handleSubmit}>
       {/* Email, numer tel, firma opcjonalnie, wiadomosc opcjo */}
-      <Label>Name:</Label>
+      <Label>Imię i nazwisko</Label>
       <Input
         data-testid="name"
         type="text"
@@ -85,7 +75,7 @@ export const ContactForm = () => {
         onChange={handleChange}
         required
       />
-      <Label>Email:</Label>
+      <Label>E-mail</Label>
       <Input
         data-testid="email"
         type="email"
@@ -95,7 +85,16 @@ export const ContactForm = () => {
         required
       />
       {error && <ErrorMessage>{error}</ErrorMessage>}
-      <Label>Message:</Label>
+      <Label>Temat wiadomości</Label>
+      <Input
+        data-testid="messageTitle"
+        type="text"
+        name="messageTitle"
+        value={formState.name}
+        onChange={handleChange}
+        required
+      />
+      <Label>Treść</Label>
       <Textarea
         data-testid="message"
         name="message"
@@ -103,7 +102,7 @@ export const ContactForm = () => {
         onChange={handleChange}
         required
       />
-      <Button type="submit">Send</Button>
+      <Button type="submit">Wyślij</Button>
     </Form>
   );
 };

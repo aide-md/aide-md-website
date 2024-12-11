@@ -5,34 +5,33 @@ import { graphql } from "gatsby";
 import { Layout } from "../layout";
 import { SEO } from "../components/SEO";
 import { DataImage } from "../types/image";
-import { FaqView } from "../views/faq";
+import { ContactView } from "../views/contact";
 
-interface FAQPageProps extends PageProps {
+interface ContactPageProps extends PageProps {
   data: {
     logo: DataImage;
     flags: DataImage;
-    faqImage: DataImage;
   };
 }
 
-const FAQPage: React.FC<FAQPageProps> = ({ data }) => {
+const ContactPage: React.FC<ContactPageProps> = ({ data }) => {
   return (
     <Layout
       logo={data.logo.childImageSharp.gatsbyImageData}
       flags={data.flags.childImageSharp.gatsbyImageData}
     >
-      <FaqView faqImage={data.faqImage.childImageSharp.gatsbyImageData} />
+      <ContactView />
     </Layout>
   );
 };
 
-export default FAQPage;
+export default ContactPage;
 
 export const Head: HeadFC = () => (
   <SEO
-    title="FAQ"
+    title="Contact Aide MD"
     name="Aide MD"
-    content="Let us answer some questions"
+    content="Contact Aide MD for more informations"
     lang="pl"
   />
 );
@@ -47,11 +46,6 @@ export const query = graphql`
     flags: file(relativePath: { eq: "flags.jpg" }) {
       childImageSharp {
         gatsbyImageData(layout: FIXED, height: 60)
-      }
-    }
-    faqImage: file(relativePath: { eq: "statoscope.png" }) {
-      childImageSharp {
-        gatsbyImageData(layout: CONSTRAINED, height: 500)
       }
     }
   }

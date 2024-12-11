@@ -28,6 +28,7 @@ const HeroSubtitle = styled.p`
 
 const HeroList = styled.ul`
   margin-bottom: ${({ theme }) => theme.spacing.l};
+  text-align: left;
 `;
 
 const HeroListItem = styled.li`
@@ -38,8 +39,8 @@ interface HeroProps {
   title: string;
   subtitle?: string;
   bullets?: string[];
-  ctaText: string;
-  ctaLink: string;
+  ctaText?: string;
+  ctaLink?: string;
 }
 
 export const Hero: React.FC<HeroProps> = ({
@@ -64,9 +65,11 @@ export const Hero: React.FC<HeroProps> = ({
           ))}
         </HeroList>
       )}
-      <Button onClick={handleGetStartedClick} variant="secondary">
-        {ctaText}
-      </Button>
+      {ctaLink && (
+        <Button onClick={handleGetStartedClick} variant="secondary">
+          {ctaText}
+        </Button>
+      )}
     </HeroWrapper>
   );
 };

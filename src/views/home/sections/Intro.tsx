@@ -7,7 +7,7 @@ import { Image } from "../../../components/Image";
 const Wrapper = styled.div`
   width: 100%;
   display: flex;
-  gap: 120px;
+  gap: ${({ theme }) => theme.spacing.xl};
   margin-bottom: 80px;
 `;
 
@@ -87,22 +87,15 @@ export const IntroSection: React.FC<IntroSectionProps> = ({ images }) => {
         </Description>
         <ButtonsWrapper>
           <Button size="xl" onClick={handleTestAppClick}>
-            Test app
+            Przetestuj
           </Button>
-          <Button size="xl" onClick={handleContactUsClick}>
-            contact us
-          </Button>
+          <Button size="xl">Kontakt</Button>
         </ButtonsWrapper>
         <CreditsWrapper>
           <CreditsImageWrapper>
             <Image imageData={images.icon} alt="Credit image" />
           </CreditsImageWrapper>
-          <div>
-            <CreditsTitle>Stworzony przez Aide md</CreditsTitle>
-            <CreditsDescription>
-              któremu zaufało ponad 70 000 lekarzy w Polsce
-            </CreditsDescription>
-          </div>
+          <CreditsTitle>Stworzony przez AIDE.MD</CreditsTitle>
         </CreditsWrapper>
       </ContentWrapper>
       <ImageWrapper>
