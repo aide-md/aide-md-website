@@ -9,19 +9,18 @@ import { FaqView } from "../views/faq";
 
 interface FAQPageProps extends PageProps {
   data: {
-    teamImage: DataImage;
     logo: DataImage;
+    flags: DataImage;
   };
 }
 
 const FAQPage: React.FC<FAQPageProps> = ({ data }) => {
   return (
-    <Layout logo={data.logo.childImageSharp.gatsbyImageData}>
-      <FaqView
-        images={{
-          teamImage: data.teamImage.childImageSharp.gatsbyImageData,
-        }}
-      />
+    <Layout
+      logo={data.logo.childImageSharp.gatsbyImageData}
+      flags={data.flags.childImageSharp.gatsbyImageData}
+    >
+      <FaqView />
     </Layout>
   );
 };
@@ -39,14 +38,14 @@ export const Head: HeadFC = () => (
 
 export const query = graphql`
   query {
-    teamImage: file(relativePath: { eq: "team.jpg" }) {
-      childImageSharp {
-        gatsbyImageData(layout: CONSTRAINED, width: 600)
-      }
-    }
     logo: file(relativePath: { eq: "logo.png" }) {
       childImageSharp {
-        gatsbyImageData(layout: CONSTRAINED, width: 40)
+        gatsbyImageData(layout: CONSTRAINED, width: 80)
+      }
+    }
+    flags: file(relativePath: { eq: "flags.jpg" }) {
+      childImageSharp {
+        gatsbyImageData(layout: FIXED, height: 60)
       }
     }
   }

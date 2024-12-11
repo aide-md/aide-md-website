@@ -3,8 +3,7 @@ import styled from "styled-components";
 import { GatsbyImage, getImage, ImageDataLike } from "gatsby-plugin-image";
 
 const StyledImage = styled(GatsbyImage)`
-  border-radius: 8px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  border-radius: ${({ theme }) => theme.radius.s};
 `;
 
 interface ImageProps {

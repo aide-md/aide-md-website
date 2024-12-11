@@ -1,24 +1,14 @@
 import React from "react";
-import styled from "styled-components";
 import { ImageDataLike } from "gatsby-plugin-image";
 
 import { Hero } from "../../components/Hero";
-import { ContactForm } from "../../components/ContactForm";
-import { Image } from "../../components/Image";
 import { IntroSection } from "./sections/Intro";
-
-const ImageSectionWrapper = styled.div`
-  margin: 40px 0;
-`;
 
 interface HomeViewProps {
   images: {
     intro: {
       placeholderImage: ImageDataLike | null;
       icon: ImageDataLike | null;
-    };
-    test: {
-      placeholderImage: ImageDataLike | null;
     };
   };
 }
@@ -28,18 +18,15 @@ export const HomeView: React.FC<HomeViewProps> = ({ images }) => {
     <>
       <IntroSection images={images.intro} />
       <Hero
-        title="Welcome to Aide MD"
-        subtitle="Your health is our priority. Find the best medical assistance today."
+        title="Korzyści w skrócie:"
+        bullets={[
+          "Automatyczna transkrypcja i generowanie notatek.",
+          "Skrócenie czasu pracy lekarzy o 30%.",
+          "Zwiększenie liczby obsługiwanych wizyt o 20%.",
+        ]}
         ctaText="Get Started"
         ctaLink="/about"
       />
-
-      <ImageSectionWrapper>
-        <h2>Meet Our Team</h2>
-        <Image imageData={images.test.placeholderImage} alt="Medical team" />
-      </ImageSectionWrapper>
-
-      <ContactForm />
     </>
   );
 };

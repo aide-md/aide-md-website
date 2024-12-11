@@ -1,17 +1,20 @@
 import React from "react";
 import styled from "styled-components";
 import { ImageDataLike } from "gatsby-plugin-image";
+import { Button } from "../../components/Button";
 
-import { Hero } from "../../components/Hero";
-import { Image } from "../../components/Image";
+const Section = styled.section``;
 
-const Section = styled.section`
-  margin: 40px 0;
-  padding: 20px;
+const MainHeading = styled.h1`
+  margin-bottom: ${({ theme }) => theme.spacing.m};
 `;
 
-const TeamSectionWrapper = styled.div`
-  margin: 40px 0;
+const Text = styled.p`
+  margin-bottom: ${({ theme }) => theme.spacing.l};
+`;
+
+const SecondaryHeading = styled.h2`
+  margin-bottom: ${({ theme }) => theme.spacing.m};
 `;
 
 interface DemoViewProps {
@@ -21,27 +24,29 @@ interface DemoViewProps {
 }
 
 export const DemoView: React.FC<DemoViewProps> = ({ images }) => {
+  const handleDemoClick = () => {
+    console.log("handleDemoClick");
+  };
+
   return (
-    <>
-      <Hero
-        title="Przekonaj się"
-        subtitle="Wypróbuj nasze rozwiązanie"
-        ctaText="TRY IT"
-        ctaLink="https://aide-md-app.azurewebsites.net/"
-      />
-
-      <Section>
-        <h2>Przetestuj!</h2>
-        <p>
-          Zobacz, o ile łatwiejsze i szybsze będzie przygotowywanie notatek przy
-          użyciu naszej aplikacji!
-        </p>
-      </Section>
-
-      <TeamSectionWrapper>
-        <h2>Meet Our Team</h2>
-        <Image imageData={images.teamImage} alt="Aide MD medical team" />
-      </TeamSectionWrapper>
-    </>
+    <Section>
+      <MainHeading>Gotowi na zmianę? Zacznij już dziś</MainHeading>
+      <Text>
+        Nie czekaj, aż inne placówki wyprzedzą Twoją. Wypróbuj Automatycznego
+        Asystenta Medycznego za darmo i zobacz, jak uprościć pracę lekarzy,
+        zwiększyć liczbę wizyt i poprawić organizację.
+      </Text>
+      <SecondaryHeading>Dlaczego warto?</SecondaryHeading>
+      <ul>
+        <li>Testuj bez ryzyka – darmowy okres próbny.</li>
+        <li>Otrzymaj pełne wsparcie przy wdrożeniu.</li>
+        <li>Zobacz efekty już od pierwszego dnia.</li>
+      </ul>
+      <Text>
+        Technologia zmienia medycynę, a Twoja placówka może być w czołówce tej
+        zmiany.
+      </Text>
+      <Button onClick={handleDemoClick}>Rozpocznij darmowy okres próbny</Button>
+    </Section>
   );
 };

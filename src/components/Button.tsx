@@ -9,18 +9,20 @@ const StyledButton = styled.button<{
   variant: ButtonVariants;
   size: ButtonSizes;
 }>`
-  background-color: ${({ variant }) =>
-    variant === "secondary" ? "#ccc" : "#00796b"};
-  color: ${({ variant }) => (variant === "secondary" ? "#000" : "#fff")};
+  background-color: ${({ variant, theme }) =>
+    variant === "secondary" ? theme.colors.secondary : theme.colors.primary};
+  color: ${({ theme }) => theme.colors.white};
   padding: ${({ size }) => (size === "normal" ? "10px 20px" : "15px 30px")};
   border: none;
-  border-radius: 5px;
+  border-radius: ${({ theme }) => theme.radius.s};
   font-size: ${({ size }) => (size === "normal" ? "1rem" : "1.5rem")};
   cursor: pointer;
 
   &:hover {
-    background-color: ${({ variant }) =>
-      variant === "secondary" ? "#999" : "#005f56"};
+    background-color: ${({ variant, theme }) =>
+      variant === "secondary"
+        ? theme.colors.secondaryHover
+        : theme.colors.primaryHover};
   }
 `;
 

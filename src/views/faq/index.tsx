@@ -2,115 +2,50 @@ import React from "react";
 import styled from "styled-components";
 
 import { Hero } from "../../components/Hero";
-import { Image } from "../../components/Image";
-import { ImageDataLike } from "gatsby-plugin-image";
 
-const Section = styled.section`
-  margin: 40px 0;
-  padding: 20px;
+const Section = styled.section``;
+
+const List = styled.ul`
+  margin-bottom: ${({ theme }) => theme.spacing.xl};
 `;
 
-const TeamSectionWrapper = styled.div`
-  margin: 40px 0;
-`;
+interface FaqViewProps {}
 
-interface FaqViewProps {
-  images: {
-    teamImage: ImageDataLike | null;
-  };
-}
-
-export const FaqView: React.FC<FaqViewProps> = ({ images }) => {
+export const FaqView: React.FC<FaqViewProps> = () => {
   return (
-    <>
+    <Section>
+      <h1>Masz pytania? Mamy odpowiedzi.</h1>
+      <List>
+        <li>
+          Jak działa Automatyczny Asystent Medyczny? Nagrywa wizyty,
+          automatycznie transkrybuje rozmowy i generuje gotowe notatki medyczne,
+          które można łatwo zintegrować z systemem EDM.
+        </li>
+        <li>
+          Czy dane są bezpieczne? Absolutnie! AAM spełnia najwyższe standardy
+          bezpieczeństwa danych, a opcja pracy offline zapewnia pełną kontrolę
+          nad danymi.
+        </li>
+        <li>
+          Czy narzędzie jest kompatybilne z moim EDM? Tak! AAM współpracuje z
+          większością popularnych systemów elektronicznej dokumentacji
+          medycznej.
+        </li>
+        <li>
+          Czy mogę przetestować narzędzie przed zakupem? Tak, oferujemy darmowy
+          okres próbny, abyś mógł przekonać się o wartości naszego rozwiązania.
+        </li>
+        <li>
+          Czy moi lekarze będą potrzebowali szkoleń? Nie, AAM jest intuicyjny i
+          prosty w obsłudze. Dodatkowo zapewniamy wsparcie techniczne w razie
+          potrzeby.
+        </li>
+      </List>
       <Hero
-        title="Q&A"
-        subtitle="Pytania i odpowiedzi"
-        ctaText="Masz więcej pytań?"
+        title="Masz inne pytania?"
+        ctaText="Skontaktuj się z nami"
         ctaLink="/contact"
       />
-
-      <Section>
-        <h2>FAQ</h2>
-        <ul>
-          <li>
-            Dzięki innowacyjnemu modelowi dystrybucji, oferujemy nasze
-            rozwiązanie również bezpośrednio użytkownikom końcowym, co pozwala
-            na łatwe i szybkie wdrożenie bez konieczności przechodzenia przez
-            skomplikowane procedury przetargowe.
-          </li>
-          <li>
-            Nasza aplikacja jest także niezależna od konkretnego dostawcy
-            systemu EDM, co umożliwia jej zastosowanie w różnych placówkach,
-            niezależnie od systemów informatycznych, z których korzystają.
-          </li>
-          <li>
-            Wysoka jakość wygenerowanych notatek, dzięki dostrojonemu modelowi.
-          </li>
-          <li>
-            Brak konieczności poprawiania notatek, co daje dalsze oszczędności
-            na czasie.
-          </li>
-          <li>Najwyższe bezpieczeństwo.</li>
-          <li>
-            Uruchomienie modelu językowego na stosunkowo niewielkiej jednostce
-            obliczeniowej, którą można umieścić w serwerowni szpitala lub
-            przychodni, radykalnie ogranicza możliwość wycieku szczególnie
-            wrażliwych danych medycznych.
-          </li>
-          <li>
-            Podmioty przetwarzające wrażliwe dane są często ofiarami ataków
-            hackerów, którzy np. żądają okupu wartości nawet wielu milionów
-            dolarów za wykradzione dane pacjentów. Przechowywanie ich wyłącznie
-            na wewnętrznym serwerze znacznie ogranicza możliwość kradzieży.
-          </li>
-          <li>
-            Wyjątkowa, liczona w pojedynczych sekundach, prędkość tworzenia
-            notatek medycznych.
-          </li>
-          <li>
-            Dostarczanie urządzenia przystosowanego do nagrywania w warunkach
-            oddziału szpitalnego. Nie zawsze mikrofon wbudowany w smartfon lub
-            komputer wystarczy do skutecznego nagrywania dźwięku. Dzięki
-            klinicznemu doświadczeniu członków naszego zespołu wiemy, że
-            niezbędne jest, żeby móc zbierać dane zarówno przy biurku, jak i
-            przy łóżku pacjenta. Dlatego planujemy oferować urządzenie, z
-            którego można korzystać mając ręce wolne i podczas przemieszczania
-            się.
-          </li>
-          <li>
-            Intuicyjny interfejs, budowany od samego początku przy aktywnym
-            udziale użytkowników końcowych z pełnym zrozumieniem dla ich
-            wyjątkowych potrzeb wynikających ze szczególnej demografii oraz
-            warunków pracy, obliczony na maksymalną prostotę i intuicyjność
-            użytkowania.
-          </li>
-          <li>
-            Niskie koszty operacyjne dzięki modelowi nie wymagającemu drogiej
-            infrastruktury komputerowej.
-          </li>
-          <li>
-            Uzupełnianie skal medycznych. Nasze rozwiązanie wspiera lekarza w
-            mozolnym wpisywaniu wartości wielu wskaźników w celu skorzystania z
-            narzędzi przydatnych w procesie diagnostycznym.
-          </li>
-          <li>
-            Przywoływanie adekwatnych źródeł wiedzy. Nasze rozwiązanie analizuje
-            transkrypt wywiadu i przedstawia lekarzowi adekwatne źródło wiedzy
-            (np. aktualne wytyczne towarzystw naukowych), które może pomóc mu w
-            procesie diagnostycznym bądź planowaniu leczenia.
-          </li>
-          <li>
-            Innowacyjny sposób dystrybucji umożliwiający zakup usługi również
-            bezpośrednio lekarzom, niezależnie od zatrudniającej ich placówki.
-          </li>
-        </ul>
-      </Section>
-
-      <TeamSectionWrapper>
-        <h2>Meet Our Team</h2>
-        <Image imageData={images.teamImage} alt="Aide MD medical team" />
-      </TeamSectionWrapper>
-    </>
+    </Section>
   );
 };

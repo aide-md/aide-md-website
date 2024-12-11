@@ -1,84 +1,61 @@
 import React from "react";
 import styled from "styled-components";
-import { ImageDataLike } from "gatsby-plugin-image";
 
 import { Hero } from "../../components/Hero";
-import { Image } from "../../components/Image";
+import { Button } from "../../components/Button";
 
-const Section = styled.section`
-  margin: 40px 0;
-  padding: 20px;
+const Section = styled.section``;
+
+const List = styled.ul`
+  margin-bottom: ${({ theme }) => theme.spacing.m};
 `;
 
-const TeamSectionWrapper = styled.div`
-  margin: 40px 0;
+const Text = styled.p`
+  margin-bottom: ${({ theme }) => theme.spacing.l};
 `;
 
-interface PropositionView {
-  images: {
-    teamImage: ImageDataLike | null;
+interface PropositionView {}
+
+export const PropositionView: React.FC<PropositionView> = () => {
+  const handleCheckClick = () => {
+    console.log("check click");
   };
-}
 
-export const PropositionView: React.FC<PropositionView> = ({ images }) => {
   return (
-    <>
+    <Section>
       <Hero
-        title="Co dostajesz?"
-        subtitle="'Dowiedz się więcej o naszej propozycji'"
+        title="Zmień wyzwania w przewagę z Automatycznym Asystentem Medycznym"
+        subtitle="Twoja placówka zasługuje na rozwiązania, które wspierają rozwój i efektywność. Dlaczego warto zaufać AAM?"
         ctaText="Daj się przekonać!"
         ctaLink="/proposition"
       />
 
-      <Section>
-        <h2>Co możesz zyskać?</h2>
-        <p>
-          Dzięki innowacyjnemu modelowi dystrybucji, oferujemy nasze rozwiązanie
-          również bezpośrednio użytkownikom końcowym, co pozwala na łatwe i
-          szybkie wdrożenie bez konieczności przechodzenia przez skomplikowane
-          procedury przetargowe. Nasza aplikacja jest także niezależna od
-          konkretnego dostawcy systemu EDM, co umożliwia jej zastosowanie w
-          różnych placówkach, niezależnie od systemów informatycznych, z których
-          korzystają Wysoka jakość wygenerowanych notatek, dzięki dostrojonemu
-          modelowi. Brak konieczności poprawiania notatek, co daje dalsze
-          oszczędności na czasie. Najwyższe bezpieczeństwo. Uruchomienie modelu
-          językowego na stosunkowo niewielkiej jednostce obliczeniowej, którą
-          można umieścić w serwerowni szpitala lub przychodni radykalnie
-          ogranicza możliwość wycieku szczególnie wrażliwych danych medycznych.
-          Podmioty przetwarzające wrażliwe dane są często ofiarami ataków
-          hackerów, którzy np. żądają okupu wartości nawet wielu milionów
-          dolarów za wykradzione dane pacjentów. Przechowywanie ich wyłącznie na
-          wewnętrznym serwerze znacznie ogranicza możliwość kradzieży.
-          Wyjątkowa, liczona w pojedynczych sekundach, prędkość tworzenia
-          notatek medycznych. Dostarczanie urządzenia przystosowanego do
-          nagrywania w warunkach oddziału szpitalnego. Nie zawsze mikrofon
-          wbudowany w smartfon lub komputer wystarczy do skutecznego nagrywania
-          dźwięku. Dzięki klinicznemu doświadczeniu członków naszego zespołu
-          wiemy, że niezbędne jest, żeby móc zbierać dane zarówno przy biurku
-          jak i przy łóżku pacjenta. Dlatego planujemy oferować urządzenie, z
-          którego można korzystać mając ręce wolne i podczas przemieszczania
-          się. Intuicyjny interfejs. Budowany od samego początku przy aktywnym
-          udziale użytkowników końcowych z pełnym zrozumieniem dla ich
-          wyjątkowych potrzeb wynikających ze szczególnej demografii oraz
-          warunków pracy, obliczony na maksymalną prostotę i intuicyjność
-          użytkowania. Niskie koszty operacyjne dzięki modelowi nie wymagającemu
-          drogiej infrastruktury komputerowej . Uzupełnianie skal medycznych
-          Nasze rozwiązanie wspiera lekarza w mozolnym wpisywaniu wartości wielu
-          wskaźników w celu skorzystania z narzędzi przydatnych w procesie
-          diagnostycznym. Przywoływanie adekwatnych źródeł wiedzy. Nasze
-          rozwiązanie analizuje transkrypt wywiadu i przedstawia lekarzowi
-          adekwatne źródło wiedzy (np. aktualne wytyczne towarzystw naukowych),
-          które może pomóc mu w procesie diagnostycznym bądź planowaniu
-          leczenia. Innowacyjny sposób dystrybucji umożliwiając zakup usługi
-          również bezpośrednio lekarzom, niezależnie od zatrudniającej ich
-          placówki.
-        </p>
-      </Section>
-
-      <TeamSectionWrapper>
-        <h2>Meet Our Team</h2>
-        <Image imageData={images.teamImage} alt="Aide MD medical team" />
-      </TeamSectionWrapper>
-    </>
+      <h2>Nasze przewagi:</h2>
+      <List>
+        <li>
+          Czas to zdrowie: Automatyzacja dokumentacji oszczędza nawet 30 minut
+          na wizytę.
+        </li>
+        <li>
+          Bezpieczeństwo bez kompromisów: Pełna zgodność z RODO i opcja pracy
+          offline.
+        </li>
+        <li>
+          Integracja bez wysiłku: Dostosowanie do istniejących systemów EDM –
+          brak potrzeby ich wymiany.
+        </li>
+        <li>
+          Efektywność i zadowolenie: Większa liczba wizyt, krótsze kolejki i
+          bardziej zadowoleni pacjenci.
+        </li>
+      </List>
+      <Text>
+        Dołącz do liderów, którzy już wybrali Automatycznego Asystenta
+        Medycznego. Zmień sposób pracy na lepsze.
+      </Text>
+      <Button onClick={handleCheckClick}>
+        Sprawdź, jak możemy pomóc Twojej placówce
+      </Button>
+    </Section>
   );
 };

@@ -1,16 +1,17 @@
 import React from "react";
-import { graphql, Link } from "gatsby";
-import styled from "styled-components";
+import { Link } from "gatsby";
+import styled, { ThemeProvider } from "styled-components";
 import { Image } from "./Image";
 import { ImageDataLike } from "gatsby-plugin-image";
 import { Button } from "./Button";
 
 const HeaderWrapper = styled.header`
-  background-color: #00796b;
-  padding: 15px 20px;
+  background-color: ${({ theme }) => theme.colors.primary};
+  padding: 0 20px;
   color: #ffffff;
   display: grid;
   place-items: center;
+  height: 80px;
 `;
 
 const Nav = styled.nav`
@@ -32,7 +33,7 @@ const NavLink = styled(Link)`
 `;
 
 const Logo = styled(Image)`
-  width: 40px;
+  margin-right: 50px;
 `;
 
 const NavLinksWithLogo = styled.div`
@@ -54,15 +55,12 @@ export const Header: React.FC<HeaderProps> = ({ logo }) => {
       <Nav>
         <NavLinksWithLogo>
           <Logo imageData={logo} alt="logo" />
-          {/* Home przedstawiamy produkt more or less */}
           <NavLink to="/">Główna</NavLink>
-          {/* O nas, zespol, o produkcie */}
           <NavLink to="/about">O nas</NavLink>
-          {/* Formularz */}
-          <NavLink to="/contact">Kontakt</NavLink>
           <NavLink to="/proposition">Czemu my?</NavLink>
           <NavLink to="/faq">FAQ</NavLink>
           <NavLink to="/demo">Przekonaj się!</NavLink>
+          <NavLink to="/contact">Kontakt</NavLink>
         </NavLinksWithLogo>
         <Button variant="secondary" onClick={handleTestAppClick}>
           Test Aide
@@ -71,13 +69,3 @@ export const Header: React.FC<HeaderProps> = ({ logo }) => {
     </HeaderWrapper>
   );
 };
-
-export const query = graphql`
-  query {
-    placeholderImage: file(relativePath: { eq: "team.jpg" }) {
-      childImageSharp {
-        gatsbyImageData(layout: CONSTRAINED, width: 40)
-      }
-    }
-  }
-`;

@@ -8,7 +8,7 @@ const Wrapper = styled.div`
   width: 100%;
   display: flex;
   gap: 120px;
-  padding: 80px 0;
+  margin-bottom: 80px;
 `;
 
 const ContentWrapper = styled.div`
@@ -22,7 +22,7 @@ const Heading = styled.h1`
 `;
 
 const Description = styled.p`
-  color: grey;
+  color: ${({ theme }) => theme.colors.grey};
   margin-bottom: 32px;
 `;
 
@@ -45,14 +45,14 @@ const CreditsImageWrapper = styled.div`
   margin-right: 16px;
 `;
 
-const CreditsTitle = styled.h4`
+const CreditsTitle = styled.h3`
   font-weight: normal;
-  margin-bottom: 8px;
+  margin-bottom: ${({ theme }) => theme.spacing.s};
 `;
 
 const CreditsDescription = styled.p`
   font-weight: light;
-  color: grey;
+  color: ${({ theme }) => theme.colors.grey};
 `;
 
 const ImageWrapper = styled.div`
@@ -80,11 +80,10 @@ export const IntroSection: React.FC<IntroSectionProps> = ({ images }) => {
   return (
     <Wrapper>
       <ContentWrapper>
-        <Heading>Lekarz leczy, technologia AI tworzy notatki</Heading>
+        <Heading>Rewolucja w dokumentacji medycznej zaczyna się tutaj</Heading>
         <Description>
-          Noa Notes odciąży Cię w notowaniu w trakcie wizyty, a Ty zyskasz
-          więcej czasu, lepszą interakcję z pacjentem i dokładniejszą
-          dokumentację
+          Pozwól lekarzom skupić się na pacjentach, a nie na papierach.
+          Automatyczny Asystent Medyczny – przyszłość, która działa już dziś.
         </Description>
         <ButtonsWrapper>
           <Button size="xl" onClick={handleTestAppClick}>

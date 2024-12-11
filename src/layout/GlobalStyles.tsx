@@ -2,17 +2,17 @@
 import { createGlobalStyle } from "styled-components";
 
 export const GlobalStyles = createGlobalStyle`
-  /* Target the body styles */
   body {
     margin: 0;
     padding: 0;
     font-family: 'Arial', sans-serif;
-    background-color: #f9f9f9; /* Light background for a clean look */
-    color: #333; /* Default text color */
+    background-color: ${({ theme }) => theme.colors.ghostWhite};
+    color: ${({ theme }) => theme.colors.white};
   }
 
   h1, h2, h3, h4, h5, h6 {
-    color: #00796b; /* Brand color for headings */
+    color: ${({ theme }) => theme.colors.secondary};
+    margin: 0;
   }
 
   a {
@@ -24,9 +24,9 @@ export const GlobalStyles = createGlobalStyle`
     }
   }
 
-  p {
+  p, li {
     line-height: 1.6;
+    margin: 0;
+    color: ${({ theme }) => theme.colors.grey}
   }
-
-  /* Add any other global styles */
 `;

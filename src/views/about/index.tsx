@@ -1,49 +1,40 @@
 import React from "react";
 import styled from "styled-components";
-import { ImageDataLike } from "gatsby-plugin-image";
 
-import { Hero } from "../../components/Hero";
-import { Image } from "../../components/Image";
+const Section = styled.section``;
 
-const Section = styled.section`
-  margin: 40px 0;
-  padding: 20px;
+const Heading = styled.h1`
+  margin-bottom: ${({ theme }) => theme.spacing.l};
 `;
 
-const TeamSectionWrapper = styled.div`
-  margin: 40px 0;
+const Text = styled.p`
+  color: ${({ theme }) => theme.colors.grey};
 `;
 
-interface AboutViewProps {
-  images: {
-    teamImage: ImageDataLike | null;
-  };
-}
+interface AboutViewProps {}
 
-export const AboutView: React.FC<AboutViewProps> = ({ images }) => {
+export const AboutView: React.FC<AboutViewProps> = () => {
   return (
-    <>
-      <Hero
-        title="About Aide MD"
-        subtitle="Learn more about our mission to provide quality medical assistance."
-        ctaText="Contact Us"
-        ctaLink="/contact"
-      />
-
-      <Section>
-        <h2>Our Mission</h2>
-        <p>
-          At Aide MD, we strive to offer the best healthcare solutions through a
-          seamless and accessible platform. Our mission is to connect patients
-          with qualified medical professionals, ensuring quality care at your
-          fingertips.
-        </p>
-      </Section>
-
-      <TeamSectionWrapper>
-        <h2>Meet Our Team</h2>
-        <Image imageData={images.teamImage} alt="Aide MD medical team" />
-      </TeamSectionWrapper>
-    </>
+    <Section>
+      <Heading>Innowacja w sercu medycyny</Heading>
+      <Text>
+        Jesteśmy zespołem wizjonerów, którzy łączą technologię z empatią.
+        Wierzymy, że nowoczesne rozwiązania powinny ułatwiać życie zarówno
+        lekarzom, jak i pacjentom. Naszym celem jest stworzenie świata, w którym
+        dokumentacja medyczna przestaje być obciążeniem, a staje się wsparciem.
+      </Text>
+      <br />
+      <Text>
+        Automatyczny Asystent Medyczny to efekt wieloletnich badań i współpracy
+        z praktykami z branży medycznej. Tworzymy narzędzia, które odpowiadają
+        na realne potrzeby: od automatyzacji dokumentacji, po intuicyjność
+        obsługi i pełne bezpieczeństwo danych.
+      </Text>
+      <br />
+      <Text>
+        Naszą misją jest uczynienie medycyny bardziej ludzką. Razem możemy
+        zmienić sposób, w jaki działa Twoja placówka.
+      </Text>
+    </Section>
   );
 };

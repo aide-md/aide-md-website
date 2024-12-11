@@ -1,5 +1,6 @@
 import React from "react";
 import styled from "styled-components";
+import { Button } from "./Button";
 
 const HeroWrapper = styled.section`
   display: flex;
@@ -7,35 +8,36 @@ const HeroWrapper = styled.section`
   align-items: center;
   text-align: center;
   padding: 40px 20px;
-  background-color: #e0f7fa;
-  color: #00796b;
+  background-color: ${({ theme }) => theme.colors.primary};
+  border-radius: ${({ theme }) => theme.radius.m};
+  margin-bottom: ${({ theme }) => theme.spacing.xl};
 `;
 
 const HeroTitle = styled.h1`
+  font-weight: 700;
   font-size: 2.5rem;
-  margin-bottom: 15px;
+  margin-bottom: ${({ theme }) => theme.spacing.m};
+  color: ${({ theme }) => theme.colors.ghostWhite};
 `;
 
 const HeroSubtitle = styled.p`
   font-size: 1.2rem;
-  margin-bottom: 20px;
+  margin-bottom: ${({ theme }) => theme.spacing.l};
+  color: ${({ theme }) => theme.colors.white};
 `;
 
-const HeroCTA = styled.a`
-  background-color: #00796b;
-  color: white;
-  padding: 10px 20px;
-  border-radius: 5px;
-  text-decoration: none;
+const HeroList = styled.ul`
+  margin-bottom: ${({ theme }) => theme.spacing.l};
+`;
 
-  &:hover {
-    background-color: #005f56;
-  }
+const HeroListItem = styled.li`
+  color: ${({ theme }) => theme.colors.white};
 `;
 
 interface HeroProps {
   title: string;
-  subtitle: string;
+  subtitle?: string;
+  bullets?: string[];
   ctaText: string;
   ctaLink: string;
 }
@@ -43,14 +45,28 @@ interface HeroProps {
 export const Hero: React.FC<HeroProps> = ({
   title,
   subtitle,
+  bullets,
   ctaText,
   ctaLink,
 }) => {
+  const handleGetStartedClick = () => {
+    console.log("started");
+  };
+
   return (
     <HeroWrapper>
       <HeroTitle>{title}</HeroTitle>
-      <HeroSubtitle>{subtitle}</HeroSubtitle>
-      <HeroCTA href={ctaLink}>{ctaText}</HeroCTA>
+      {subtitle && <HeroSubtitle>{subtitle}</HeroSubtitle>}
+      {bullets?.length && (
+        <HeroList>
+          {bullets.map((bullet) => (
+            <HeroListItem>{bullet}</HeroListItem>
+          ))}
+        </HeroList>
+      )}
+      <Button onClick={handleGetStartedClick} variant="secondary">
+        {ctaText}
+      </Button>
     </HeroWrapper>
   );
 };
